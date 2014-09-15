@@ -1,0 +1,1 @@
+/Users/lan/Sites/jinrong/app/views/borrows/show.blade.php
