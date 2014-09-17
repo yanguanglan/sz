@@ -10,6 +10,6 @@ class ItemReceive extends \Eloquent {
 	//代理商
 	public function supplier()
 	{
-		return $this->belongsTo('supplier');
+		return $this->belongsTo('Supplier');
 	}
 }
