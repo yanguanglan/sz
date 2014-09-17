@@ -304,11 +304,24 @@ function docReady() {
          $('[data-rel="chosen"],[rel="chosen"]', this).chosen();
     })
 
-     $('#itemReceivePackageDetail-myModal').on('shown.bs.modal', function (e) {
+    $('#itemReceive-myModal').on('hidden.bs.modal', function (e) {
+        $(this).removeData('bs.modal');
+    });
+
+    $('#itemReceivePackageChecked-myModal').on('hidden.bs.modal', function (e) {
+        $(this).removeData('bs.modal');
+    });
+
+    $('#HistoryWareHouse-myModal').on('hidden.bs.modal', function (e) {
+        $(this).removeData('bs.modal');
+    });
+
+    $('#itemReceivePackageDetail-myModal').on('shown.bs.modal', function (e) {
          $('[data-rel="chosen"],[rel="chosen"]', this).chosen();
     })
-
-
+    
+    $('.btnPrint').printPage();
+    
     $('#calendar').fullCalendar({
         header: {
             left: 'prev,next today',

@@ -1,7 +1,7 @@
 @extends('layouts.cpanel')
 
 @section('title')
-	@parent - 收货
+	@parent - 抄包收货
 @stop
 
 @section('breadcrumb')
@@ -10,7 +10,7 @@
 			采购
 	    </li>
 		<li>
-			收货
+			抄包收货
 	    </li>
 @stop
 
@@ -29,6 +29,7 @@
                         <tr>
                             <th>包号</th>
                             <th>数量</th>
+                            <th>审核</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -36,6 +37,9 @@
                         <tr>
                             <td>{{$package->package_no}}</td>
                             <td class="center">{{$package->item_count}}</td>
+                            <td class="center"><span class="label-default label">
+                                    已确认收货
+                                </span></td>
                         </tr>
                         	@endforeach
                         </tbody>

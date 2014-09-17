@@ -41,8 +41,8 @@
                                     class="glyphicon glyphicon-search"></i><span> 采购</span></a>
                                      <ul class="nav nav-pills nav-stacked">
                                 <li><a data-toggle="modal" href="{{ URL::to('admin/itemreceive/modal?type=add') }}" data-target="#itemReceive-myModal">预录入</a></li>
-                                <li><a data-toggle="modal" href="{{ URL::to('admin/itemreceive/modal?type=edit') }}" data-target="#itemReceive-myModal">收货</a></li>
-                                <li><a data-toggle="modal" href="{{ URL::to('admin/itemreceive/packagedetailmodal') }}" data-target="#itemReceivePackageDetail-myModal">拆包</a></li>                                </ul>                                </li>
+                                <li><a data-toggle="modal" href="{{ URL::to('admin/itemreceive/modal?type=edit') }}" data-target="#itemReceive-myModal">抄包收货</a></li>
+                                <li><a data-toggle="modal" href="{{ URL::to('admin/itemreceive/packagedetailmodal') }}" data-target="#itemReceivePackageDetail-myModal">拆包检验</a></li>                                </ul>                                </li>
 
                         <li class="accordion"><a href="#"><i class="glyphicon glyphicon-globe"></i><span> 应付</span></a>
                              <ul class="nav nav-pills nav-stacked">
@@ -51,7 +51,7 @@
                         </li>                        </li>
                         <li class="accordion"><a href="#"><i class="glyphicon glyphicon-globe"></i><span> 库存</span></a>
                              <ul class="nav nav-pills nav-stacked">
-                                <li><a href="#">存放</a></li>
+                                <li><a href="{{URL::to('admin/warehouse/history')}}">入库</a></li>
                                 <li><a href="#">备货</a></li>                                </ul> 
                         </li>                        </li>
                         <li class="accordion"><a href="#"><i class="glyphicon glyphicon-globe"></i><span> 总账</span></a>

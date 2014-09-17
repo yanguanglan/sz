@@ -1,7 +1,7 @@
 @extends('layouts.cpanel')
 
 @section('title')
-	@parent - 拆包
+	@parent - 拆包检验
 @stop
 
 @section('breadcrumb')
@@ -10,7 +10,7 @@
 			采购
 	    </li>
 		<li>
-			拆包
+			拆包检验
 	    </li>
 @stop
 
@@ -34,7 +34,7 @@
 	                    </div>
 	 	                    <div class="col-sm-6 text-right">
 	                    	<label for="">日期</label>
-	                    	{{date('Y年m月d日', strtotime($received_date))}}
+	                    	{{date('Y年m月d日', strtotime($package_checked_date))}}
 	                    </div>    
 	                </div>
             	</form>
@@ -47,23 +47,29 @@
                             <th class="text-center">缸号</th>
                         	<th class="text-center">数量（米）</th>
                             <th class="text-center">建议存放位置</th>
-                            <th class="text-center">位置现有数量</th>
-                            <th class="text-center">拆包入库</th>
+                            <th class="text-center">拆包检验</th>
                         </tr>
                         </thead>
                         <tbody>
                             @foreach($itemReceivedPackageDetails as $itemReceivedPackageDetail)
                             <tr>
-                            	<td class="text-center">{{$itemReceivedPackageDetail->no}}</td>
+                            	<td class="text-center">{{$itemReceivedPackageDetail->identity}}</td>
                             	<td class="text-center">{{$itemReceivedPackageDetail->item}}</td>
                             	<td class="text-center">{{$itemReceivedPackageDetail->batch}}</td>
                             	<td class="text-center">{{$itemReceivedPackageDetail->quantity}}</td>
                             	<td class="text-center">{{$itemReceivedPackageDetail->readyposition}}</td>
-                            	<td class="text-center">{{$itemReceivedPackageDetail->position}}</td>
-                            	<td class="text-center"><a class="btn btn-primary" href="#">
+                            	<td class="text-center">
+                                    @if($itemReceivedPackageDetail->status == 0)
+                                    <a class="btn btn-primary" data-toggle="modal" href="{{URL::to('admin/itemreceive/packagechecked?id='.$itemReceivedPackageDetail->id)}}" data-target="#itemReceivePackageChecked-myModal">
                                 <i class="glyphicon glyphicon-edit icon-white"></i>
-                                入库
+                                检验
                                 </a>
+                                    @else
+                                <a class="btn btn-warning btnPrint" href="{{URL::to('admin/itemreceive/packagecheckedprint?id='.$itemReceivedPackageDetail->id)}}">
+                                <i class="glyphicon glyphicon-print icon-white"></i>
+                                打印
+                                </a>
+                                   @endif
                             </td>
                             </tr>
                             @endforeach

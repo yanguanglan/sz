@@ -53,11 +53,14 @@ class ItemReceiveController extends \BaseController {
 
 	public function getDatatable()
     {
+    	$today = date('Y-m-d', time());
     	$collection = DB::table('item_received_packages')
         ->leftJoin('item_receives', 'item_received_packages.received_id', '=', 'item_receives.id')
         ->where('item_receives.supplier_id', '=', Input::get('supplier_id'))
         ->where('item_received_packages.status', '=', 0)
-        ->select('item_received_packages.id', 'item_received_packages.package_received_date', 'item_received_packages.package_no', 'item_received_packages.item_count');
+        ->orWhere('item_received_packages.package_checked_date', '=', $today)
+        ->select('item_received_packages.id', 'item_received_packages.package_received_date', 'item_received_packages.package_no', 'item_received_packages.item_count', 'item_received_packages.status')
+        ->orderBy('item_received_packages.status');
         //->get();
 
     	#票据
@@ -67,9 +70,16 @@ class ItemReceiveController extends \BaseController {
         ->searchColumns('package_received_date')
         ->orderColumns('package_received_date', 'package_no', 'item_count')
         ->addColumn('actions', function($model) {
-          return $str =Form::open(array('route' => array('itemreceive.packageconfirm.post', 'package_id='.$model->id), 'method' => 'post', 'data-confirm' => '确定操作？')).'
+          if($model->status == 0) {
+          	return $str =Form::open(array('route' => array('itemreceive.packageconfirm.post', 'package_id='.$model->id), 'method' => 'POST', 'data-confirm' => '确定操作？')).'
 							<button type="submit" class="btn btn-primary">到包确认</button>'
 					.Form::close();
+		  }
+		  else {
+		  	return $str = '<span class="label-default label">
+                                	已确认收货
+                                </span>';
+		  }
         })
         ->make();
     }
@@ -81,7 +91,7 @@ class ItemReceiveController extends \BaseController {
     {
     	$package = ItemReceivedPackage::find(Input::get('package_id'));
     	$package->status = 1;
-    	$package_checked_date = date('Y-m-d', time());
+    	$package->package_checked_date = date('Y-m-d', time());
     	$package->save();
     	return Redirect::back();
     }
@@ -181,7 +191,7 @@ class ItemReceiveController extends \BaseController {
 				$itemReceivedPackageDetail = new ItemReceivedPackageDetail;
 				$itemReceivedPackageDetail->package_id = $package_id;
 				$itemReceivedPackageDetail->identity = '';
-				$itemReceivedPackageDetail->supplier_id = $id;
+				$itemReceivedPackageDetail->supplier_id = Input::get('supplier_id');
 				$itemReceivedPackageDetail->item = $item[$i];
 				$itemReceivedPackageDetail->price = $price[$i];
 				$itemReceivedPackageDetail->quantity = $quantity[$i];
@@ -229,14 +239,14 @@ class ItemReceiveController extends \BaseController {
 	public function postPackageDetailModal()
 	{
 		$supplier_id = Input::get('supplier_id');
-		$received_date = Input::get('received_date');
+		$package_checked_date = Input::get('package_checked_date');
 		$package_no = Input::get('package_no');
 
 		//包
 		$package = DB::table('item_received_packages')
         ->leftJoin('item_receives', 'item_received_packages.received_id', '=', 'item_receives.id')
         ->where('item_receives.supplier_id', '=', $supplier_id)
-        ->where('item_receives.received_date', '=', $received_date)
+        ->where('item_received_packages.package_checked_date', '=', $package_checked_date)
         ->where('item_received_packages.package_no', '=', Input::get('package_no'))
         ->select('item_received_packages.id')
         ->get();
@@ -249,7 +259,79 @@ class ItemReceiveController extends \BaseController {
         	$itemReceivedPackageDetails = ItemReceivedPackageDetail::where('package_id', $package[0]->id)->get();
         }
 		
-       	return View::make('admin.itemreceive.packagedetail')->with('itemReceivedPackageDetails', $itemReceivedPackageDetails)->with('supplier', $supplier)->with('received_date', $received_date)->with('package_no', $package_no);
+       	return View::make('admin.itemreceive.packagedetail')->with('itemReceivedPackageDetails', $itemReceivedPackageDetails)->with('supplier', $supplier)->with('package_checked_date', $package_checked_date)->with('package_no', $package_no);
+	}
+
+	/**
+	 * getPackageChecked (拆包检验)
+	 */ 
+	public function getPackageChecked()
+	{
+		$itemReceivedPackageDetail = itemReceivedPackageDetail::find(Input::get('id'));
+
+		//获取检验报告号
+		$itemIdentity = ItemIdentityGeneration::where('item', $itemReceivedPackageDetail->item)
+		                                       ->where('used', 0)
+		                                       ->orderBy(DB::raw('RAND()'))
+		                                       ->first();
+		if(!isset($itemIdentity->identity)) {
+			foreach (range('A', 'Z') as $char) {
+				foreach (range(1, 99) as $number) {
+					$number = sprintf('%02d', $number);
+					//不存在则生成
+					ItemIdentityGeneration::create([
+						'item'=>$itemReceivedPackageDetail->item,
+						'identity'=>$itemReceivedPackageDetail->item.$char.$number,
+						'used'=>0
+					]);
+				}
+			}
+			$identity = $itemReceivedPackageDetail->item.$char.$number;
+		} else {
+			$identity = $itemIdentity->identity;
+		}
+
+		return View::make('admin.itemreceive.packagechecked')->with('identity', $identity)->with('itemReceivedPackageDetail', $itemReceivedPackageDetail);
+	}
+
+	/**
+	 * getPackageChecked (拆包检验)
+	 */ 
+	public function postPackageChecked()
+	{
+		$itemReceivedPackageDetail = itemReceivedPackageDetail::find(Input::get('id'));
+
+		$itemReceivedPackageDetail->identity = Input::get('identity');
+		$itemReceivedPackageDetail->quantity = Input::get('quantity');
+		$itemReceivedPackageDetail->status = 1;
+		$itemReceivedPackageDetail->save();
+
+		$itemIdentity = ItemIdentityGeneration::where('identity', Input::get('identity'))->first();
+		$itemIdentity->used = 1;
+		$itemIdentity->save();
+
+		//到包日期|包号
+		$itemReceivedPackage = ItemReceivedPackage::find($itemReceivedPackageDetail->package_id);
+		$package_checked_date = $itemReceivedPackage->package_checked_date;
+		$package_no = $itemReceivedPackage->package_no;
+
+		//供应商
+		$supplier = Supplier::find($itemReceivedPackageDetail->supplier_id);
+
+		//details
+		$itemReceivedPackageDetails = ItemReceivedPackageDetail::where('package_id', $itemReceivedPackageDetail->package_id)->orderBy('status')->get();
+
+		return View::make('admin.itemreceive.packagedetail')->with('itemReceivedPackageDetails', $itemReceivedPackageDetails)->with('supplier', $supplier)->with('package_checked_date', $package_checked_date)->with('package_no', $package_no);
+	}
+
+	/**
+	 * getPackageCheckedPrint (拆包检验打印)
+	 */ 
+	public function getPackageCheckedPrint()
+	{
+		$itemReceivedPackageDetail = itemReceivedPackageDetail::find(Input::get('id'));
+
+		return View::make('admin.itemreceive.packagecheckedprint')->with('itemReceivedPackageDetail', $itemReceivedPackageDetail);
 	}
 
 	/**

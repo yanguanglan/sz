@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateWarehousesTable extends Migration {
+class CreateHistoryWarehousesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,12 +12,15 @@ class CreateWarehousesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('warehouses', function(Blueprint $table)
+		Schema::create('history_warehouses', function(Blueprint $table)
 		{
 			$table->increments('id');
+			$table->string('identity', 32);
 			$table->string('item', 32);
+			$table->string('batch', 32);
 			$table->integer('quantity');
 			$table->string('position', 32);
+			$table->string('operator', 100);
 			$table->timestamps();
 		});
 	}
@@ -30,7 +33,7 @@ class CreateWarehousesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('warehouses');
+		Schema::drop('history_warehouses');
 	}
 
 }

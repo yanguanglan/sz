@@ -26,7 +26,6 @@
 
         <div class="modal-dialog">
             <div class="modal-content">
-                
             </div>
         </div>
     </div>
@@ -36,6 +35,37 @@
          aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
+                <!--content-->
+            </div>
+        </div>
+    </div>
+
+    <!-- 拆包检验 -->
+        <div class="modal fade" id="itemReceivePackageChecked-myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!--content-->
+            </div>
+        </div>
+    </div>
+
+ <!-- 拆包检验打印 -->
+        <div class="modal fade" id="itemReceivePackageCheckedPrint-myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!--content-->
+            </div>
+        </div>
+    </div>
+
+<!-- 入库 -->
+        <div class="modal fade" id="HistoryWareHouse-myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                
                 <!--content-->
             </div>
         </div>

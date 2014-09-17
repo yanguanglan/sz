@@ -24,6 +24,8 @@
     {{ HTML::style('/css/jquery.iphone.toggle.css') }}
     {{ HTML::style('/css/uploadify.css') }}
     {{ HTML::style('/css/animate.min.css') }}
+    <!-- anySearch -->
+    {{ HTML::style('/bower_components/anysearch/css/anysearch.css') }}
     <!-- jQuery -->
     {{ HTML::script('/bower_components/jquery/jquery.min.js') }}
     <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -65,6 +67,10 @@
 {{ HTML::script('/js/jquery.uploadify-3.1.min.js') }}
 <!-- history.js for cross-browser state change on ajax -->
 {{ HTML::script('/js/jquery.history.js') }}
+<!-- printPage -->
+{{ HTML::script('/js/jquery.printPage.js') }}
+<!-- anySearch -->
+{{ HTML::script('/bower_components/anysearch/js/anysearch.min.js') }}
 <!-- application script for Charisma demo -->
 {{ HTML::script('/js/charisma.js') }}
 </body>

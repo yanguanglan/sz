@@ -1,7 +1,7 @@
 @extends('layouts.cpanel')
 
 @section('title')
-	@parent - 收货
+	@parent - 抄包收货
 @stop
 
 @section('breadcrumb')
@@ -10,7 +10,7 @@
 			采购
 	    </li>
 		<li>
-			收货
+			抄包收货
 	    </li>
 @stop
 

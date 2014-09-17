@@ -1,7 +1,7 @@
 <form class="form-horizontal" role="form" name="itemReceivePackageDetail-myModal-form" id="itemReceivePackageDetail-myModal-form" method="POST" action="{{URL::to('admin/itemreceive/packagedetailmodal')}}">
 <div class="modal-header">
 <button type="button" class="close" data-dismiss="modal">×</button>
-<h3>拆包</h3>
+<h3>拆包检验</h3>
 </div>
 <div class="modal-body">
 <div class="box-content">
@@ -17,9 +17,9 @@
 </div>
   </div>
   <div class="form-group">
-  	    <label for="package_received_date" class="col-sm-2 control-label">日期</label>
+  	    <label for="package_checked_date" class="col-sm-2 control-label">到包日期</label>
         <div class="col-xs-6">
-        	<input class="form-control text-center" name="received_date" type="date">
+        	<input class="form-control text-center" name="package_checked_date" type="date">
     	</div>
    </div>
   <div class="form-group">

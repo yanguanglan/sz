@@ -49,9 +49,22 @@ Route::get('itemreceive/detail', array('as'=>'itemreceive.detail', 'uses'=>'Item
 Route::post('itemreceive/packageconfirm', array('as'=>'itemreceive.packageconfirm.post', 'uses'=>'ItemReceiveController@postPackageConfirm'));
 Route::get('itemreceive/packagemodaledit', array('as'=>'itemreceive.packagemodaledit', 'uses'=>'ItemReceiveController@getPackageModalEdit'));
 Route::post('itemreceive/packagemodaledit', array('as'=>'itemreceive.packagemodaledit.post', 'uses'=>'ItemReceiveController@postPackageModalEdit'));
+#拆包检验
+Route::get('itemreceive/packagechecked', array('as'=>'itemreceive.packagechecked', 'uses'=>'ItemReceiveController@getPackageChecked'));
+Route::post('itemreceive/packagechecked', array('as'=>'itemreceive.packagechecked.post', 'uses'=>'ItemReceiveController@postPackageChecked'));
+Route::get('itemreceive/packagecheckedprint', array('as'=>'itemreceive.packagecheckedprint', 'uses'=>'ItemReceiveController@getPackageCheckedPrint'));
+
 Route::resource('itemreceive', 'ItemReceiveController');
 
 Route::get('api/modaledit', array('as'=>'api.modaledit', 'uses'=>'ItemReceiveController@getDatatable'));
+#仓库
+#入库历史记录
+Route::get('api/historywarehouse', array('as'=>'api.historywarehouse', 'uses'=>'WareHouseController@getDatatable'));
+Route::get('warehouse/history', array('as'=>'warehouse.history', 'uses'=>'WareHouseController@getHistory'));
+Route::get('warehouse/modal', array('as'=>'warehouse.modal', 'uses'=>'WareHouseController@getModal'));
+Route::post('warehouse/modal', array('as'=>'warehouse.modal.post', 'uses'=>'WareHouseController@postModal'));
+Route::resource('warehouse', 'WareHouseController');
+
 
 #test
 Route::get('dashboard', function()

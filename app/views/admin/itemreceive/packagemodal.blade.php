@@ -194,6 +194,7 @@
 <button class="btn btn-default" data-dismiss="modal">关闭</button>
 <button type="submit" class="btn btn-primary" >提交</button>
 <input type="hidden" name="package_no" value="{{$itemReceive->package_count+1}}">
+<input type="hidden" name="supplier_id" value="{{$itemReceive->supplier->id}}">
 </div>
 </form>
 <script>

@@ -7,7 +7,13 @@ method="GET" action="{{URL::to('admin/itemreceive/modaledit')}}"
 ">
 <div class="modal-header">
 <button type="button" class="close" data-dismiss="modal">×</button>
-<h3>预录入</h3>
+<h3>
+@if (Input::get('type')=='add')
+预录入
+@else
+抄包收货
+@endif
+</h3>
 </div>
 <div class="modal-body">
 <div class="box-content">
