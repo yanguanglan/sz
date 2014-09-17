@@ -267,7 +267,7 @@ class ItemReceiveController extends \BaseController {
 	 */ 
 	public function getPackageChecked()
 	{
-		$itemReceivedPackageDetail = itemReceivedPackageDetail::find(Input::get('id'));
+		$itemReceivedPackageDetail = ItemReceivedPackageDetail::find(Input::get('id'));
 
 		//获取检验报告号
 		$itemIdentity = ItemIdentityGeneration::where('item', $itemReceivedPackageDetail->item)
@@ -299,7 +299,7 @@ class ItemReceiveController extends \BaseController {
 	 */ 
 	public function postPackageChecked()
 	{
-		$itemReceivedPackageDetail = itemReceivedPackageDetail::find(Input::get('id'));
+		$itemReceivedPackageDetail = ItemReceivedPackageDetail::find(Input::get('id'));
 
 		$itemReceivedPackageDetail->identity = Input::get('identity');
 		$itemReceivedPackageDetail->quantity = Input::get('quantity');
@@ -329,7 +329,7 @@ class ItemReceiveController extends \BaseController {
 	 */ 
 	public function getPackageCheckedPrint()
 	{
-		$itemReceivedPackageDetail = itemReceivedPackageDetail::find(Input::get('id'));
+		$itemReceivedPackageDetail = ItemReceivedPackageDetail::find(Input::get('id'));
 
 		return View::make('admin.itemreceive.packagecheckedprint')->with('itemReceivedPackageDetail', $itemReceivedPackageDetail);
 	}
