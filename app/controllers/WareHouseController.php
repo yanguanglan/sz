@@ -80,6 +80,12 @@ class WareHouseController extends \BaseController {
 			$wareHouse->quantity = $itemReceivedPackageDetail->quantity;
 			$wareHouse->save();
 		}
+		
+		//更新item总库存
+		$items = Item::where('code', $itemReceivedPackageDetail->item)->first();
+		$items->stock += $itemReceivedPackageDetail->quantity;
+		$items->readystock -= $itemReceivedPackageDetail->quantity;
+		$items->save();
 
 		return Redirect::back();
 	}

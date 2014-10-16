@@ -201,6 +201,11 @@ class ItemReceiveController extends \BaseController {
 				$itemReceivedPackageDetail->status = 0;
 				$itemReceivedPackageDetail->save();
 
+				//更新预录入库存
+				$items = Item::where('code', $item[$i])->first();
+				$items->readystock += $quantity[$i];
+				$items->save(); 
+
 				//米数
 				$item_count += $quantity[$i];
 				//金额
@@ -309,6 +314,74 @@ class ItemReceiveController extends \BaseController {
 		$itemIdentity = ItemIdentityGeneration::where('identity', Input::get('identity'))->first();
 		$itemIdentity->used = 1;
 		$itemIdentity->save();
+
+		//到包日期|包号
+		$itemReceivedPackage = ItemReceivedPackage::find($itemReceivedPackageDetail->package_id);
+		$package_checked_date = $itemReceivedPackage->package_checked_date;
+		$package_no = $itemReceivedPackage->package_no;
+
+		//供应商
+		$supplier = Supplier::find($itemReceivedPackageDetail->supplier_id);
+
+		//details
+		$itemReceivedPackageDetails = ItemReceivedPackageDetail::where('package_id', $itemReceivedPackageDetail->package_id)->orderBy('status')->get();
+
+		return View::make('admin.itemreceive.packagedetail')->with('itemReceivedPackageDetails', $itemReceivedPackageDetails)->with('supplier', $supplier)->with('package_checked_date', $package_checked_date)->with('package_no', $package_no);
+	}
+
+	/**
+	 * getPackageCheckedin (拆包检验入库)
+	 */
+	public function getPackageCheckedin()
+	{
+		$itemReceivedPackageDetail = ItemReceivedPackageDetail::where('id', Input::get('id'))
+															  ->where('status', 1)
+															  ->first();
+		return View::make('admin.itemreceive.modalcheckedin')->with('itemReceivedPackageDetail', $itemReceivedPackageDetail);
+	}
+
+	/**
+	 * postPackageCheckedin (拆包检验入库)
+	 */
+	public function postPackageCheckedin()
+	{
+		$id = Input::get('id');
+		$position = Input::get('readyposition');
+		$itemReceivedPackageDetail = ItemReceivedPackageDetail::find($id);
+		$itemReceivedPackageDetail->status = 2;
+		$itemReceivedPackageDetail->readyposition = $position;
+		$itemReceivedPackageDetail->save();
+
+		//历史入库记录
+		$historyWareHouse = new HistoryWarehouse;
+		$historyWareHouse->identity = $itemReceivedPackageDetail->identity;
+		$historyWareHouse->item = $itemReceivedPackageDetail->item;
+		$historyWareHouse->batch = $itemReceivedPackageDetail->batch;
+		$historyWareHouse->quantity = $itemReceivedPackageDetail->quantity;
+		$historyWareHouse->position = $position;
+		$historyWareHouse->operator = 5;
+		$historyWareHouse->save();
+
+		//库存汇总
+		$wareHouse = Warehouse::where('item', $itemReceivedPackageDetail->item)
+		                      ->where('position', $position)
+		                      ->first();
+
+		if($wareHouse) {
+			$wareHouse->quantity = $wareHouse->quantity + $itemReceivedPackageDetail->quantity;
+			$wareHouse->save();
+		} else {
+			$wareHouse = new Warehouse;
+			$wareHouse->item = $itemReceivedPackageDetail->item;
+			$wareHouse->position = $position;
+			$wareHouse->quantity = $itemReceivedPackageDetail->quantity;
+			$wareHouse->save();
+		}
+		//更新item总库存
+		$items = Item::where('code', $itemReceivedPackageDetail->item)->first();
+		$items->stock += $itemReceivedPackageDetail->quantity;
+		$items->readystock -= $itemReceivedPackageDetail->quantity;
+		$items->save();
 
 		//到包日期|包号
 		$itemReceivedPackage = ItemReceivedPackage::find($itemReceivedPackageDetail->package_id);

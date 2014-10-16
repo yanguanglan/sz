@@ -15,7 +15,7 @@ class CreateCustomerReceivedAddressTable extends Migration {
 		Schema::create('customer_received_address', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('customer_id');
+			$table->integer('customer_id')->index();
 			$table->string('name', 100);
 			$table->string('mobile', 11);
 			$table->integer('province');
@@ -24,6 +24,7 @@ class CreateCustomerReceivedAddressTable extends Migration {
 			$table->string('street');
 			$table->string('address');
 			$table->string('postcode', 6);
+			$table->boolean('default', 0);
 			$table->timestamps();
 		});
 	}

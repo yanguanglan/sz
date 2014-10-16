@@ -15,14 +15,12 @@ class CreateCartsTable extends Migration {
 		Schema::create('carts', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('customer_id');
-			$table->integer('item_id');
+			$table->integer('customer_id')->index();
+			$table->integer('item_id')->index();
 			$table->boolean('type', 0);
 			$table->integer('quantity');
-			$table->integer('remained_quantity');
-			$table->boolean('craft', 0);
 			$table->string('craft_description');
-			$table->boolean('status', 0);
+			$table->decimal('confirm_price', 5,2);
 			$table->timestamps();
 		});
 	}

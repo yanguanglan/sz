@@ -15,7 +15,7 @@ class CreateItemCodeReferenceValuesTable extends Migration {
 		Schema::create('item_code_reference_values', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('group_id');
+			$table->integer('group_id')->index();
 			$table->string('code', 10);
 			$table->string('value', 100);
 			$table->integer('sort');

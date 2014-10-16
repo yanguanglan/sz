@@ -16,7 +16,7 @@ class CreateItemIdentityGenerationsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('item', 32);
-			$table->string('identity', 32);
+			$table->string('identity', 32)->unique();
 			$table->boolean('used', 0);
 			$table->timestamps();
 		});

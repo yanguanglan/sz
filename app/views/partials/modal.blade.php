@@ -70,3 +70,46 @@
             </div>
         </div>
     </div>
+
+<!-- 检验入库 -->
+        <div class="modal fade" id="Checkedin-myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                
+                <!--content-->
+            </div>
+        </div>
+    </div>
+<!--登记客户-->
+    <div class="modal fade" id="CartAddCustomer-myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                
+                <!--content-->
+            </div>
+        </div>
+    </div>
+
+<!--备货确认-->
+    <div class="modal fade" id="Stockup-myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                
+                <!--content-->
+            </div>
+        </div>
+    </div>
+
+<!--打包确认-->
+    <div class="modal fade" id="Stockuppackage-myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                
+                <!--content-->
+            </div>
+        </div>
+    </div>

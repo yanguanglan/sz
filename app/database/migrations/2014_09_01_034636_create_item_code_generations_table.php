@@ -15,7 +15,7 @@ class CreateItemCodeGenerationsTable extends Migration {
 		Schema::create('item_code_generations', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('code', 32);
+			$table->string('code', 32)->unqiue();
 			$table->boolean('used', 0);
 			$table->timestamps();
 		});

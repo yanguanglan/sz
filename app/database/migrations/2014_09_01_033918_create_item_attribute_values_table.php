@@ -15,7 +15,7 @@ class CreateItemAttributeValuesTable extends Migration {
 		Schema::create('item_attribute_values', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('group_id');
+			$table->integer('group_id')->index();
 			$table->string('value');
 			$table->integer('sort');
 			$table->timestamps();

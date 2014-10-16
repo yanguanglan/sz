@@ -15,8 +15,8 @@ class CreateItemIdentitysTable extends Migration {
 		Schema::create('item_identitys', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('supplier_id');
-			$table->integer('item_id');
+			$table->integer('supplier_id')->index();
+			$table->integer('item_id')->index();
 			$table->integer('quantity');
 			$table->text('content');
 			$table->boolean('actived', 0);

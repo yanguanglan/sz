@@ -16,7 +16,7 @@ class ItemReceivesTableSeeder extends Seeder {
 			]);
 		}*/
 
-		ItemReceive::create([
+		/*ItemReceive::create([
 			'no'=>'20140904112356001',
 			'supplier_id'=>1,
 			'received_date'=>'2014-09-04',
@@ -75,7 +75,7 @@ class ItemReceivesTableSeeder extends Seeder {
 			'amount'=>22000,
 			'status'=>0
 			]);
-
+*/
 	}
 
 }

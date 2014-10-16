@@ -20,6 +20,12 @@ class DatabaseSeeder extends Seeder {
 		$this->call('ItemReceivesTableSeeder');
 		$this->call('ItemReceivedPackagesTableSeeder');
 		$this->call('ItemReceivedPackageDetailsTableSeeder');
+		$this->call('CustomerGroupsTableSeeder');
+		$this->call('ItemCategoriesTableSeeder');
+		$this->call('CustomerGenerationsTableSeeder');
+		$this->call('PaymentMethodsTableSeeder');
+		$this->call('ShippingMethodsTableSeeder');
+		$this->call('WarehousesTableSeeder');
 	}
 
 }

@@ -15,7 +15,7 @@ class CreateSamplesTable extends Migration {
 		Schema::create('samples', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('code', 32);
+			$table->string('code', 32)->unique();
 			$table->integer('stock');
 			$table->timestamps();
 		});

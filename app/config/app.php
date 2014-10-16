@@ -124,6 +124,7 @@ return array(
 		'Way\Generators\GeneratorsServiceProvider',
 		'Chumper\Datatable\DatatableServiceProvider',
 		'Dinesh\Barcode\BarcodeServiceProvider',
+		'Intervention\Image\ImageServiceProvider',
 	),
 
 	/*
@@ -193,6 +194,7 @@ return array(
 		'Datatable' => 'Chumper\Datatable\Facades\DatatableFacade',
 		'DNS1D' => 'Dinesh\Barcode\Facades\DNS1DFacade',
         'DNS2D' => 'Dinesh\Barcode\Facades\DNS2DFacade',
+        'Image' => 'Intervention\Image\Facades\Image',
 	),
 
 );

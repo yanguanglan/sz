@@ -19,6 +19,7 @@ class CreateWarehousesTable extends Migration {
 			$table->integer('quantity');
 			$table->string('position', 32);
 			$table->timestamps();
+			$table->unique(array('item', 'position'));
 		});
 	}
 

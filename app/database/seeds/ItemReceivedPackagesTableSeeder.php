@@ -16,7 +16,7 @@ class ItemReceivedPackagesTableSeeder extends Seeder {
 			]);
 		}*/
 
-		ItemReceivedPackage::create([
+	/*	ItemReceivedPackage::create([
 			'received_id'=>1,
 			'package_no'=>'001',
 			'package_received_date'=>'2014-09-04',
@@ -158,7 +158,7 @@ class ItemReceivedPackagesTableSeeder extends Seeder {
 			'item_count'=>'5000',
 			'amount'=>9000,
 			'status'=>0
-			]);
+			]);*/
 	}
 
 }

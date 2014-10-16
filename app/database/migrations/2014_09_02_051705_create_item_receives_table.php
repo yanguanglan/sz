@@ -16,7 +16,7 @@ class CreateItemReceivesTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('no', 32);
-			$table->integer('supplier_id');
+			$table->integer('supplier_id')->index();
 			$table->date('received_date');
 			$table->integer('item_count');
 			$table->integer('package_count');

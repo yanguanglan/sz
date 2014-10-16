@@ -17,6 +17,8 @@ class CreateItemCategoriesTable extends Migration {
 			$table->increments('id');
 			$table->string('name', 100);
 			$table->string('description');
+			$table->integer('parent_id')->default(0);
+			$table->integer('sort')->default(0);
 			$table->timestamps();
 		});
 	}

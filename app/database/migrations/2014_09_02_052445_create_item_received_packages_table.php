@@ -15,7 +15,7 @@ class CreateItemReceivedPackagesTable extends Migration {
 		Schema::create('item_received_packages', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('received_id');
+			$table->integer('received_id')->index();
 			$table->string('package_no', 32);
 			$table->date('package_received_date');
 			$table->date('package_checked_date');

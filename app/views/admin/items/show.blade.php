@@ -1,0 +1,1 @@
+/Users/lan/Sites/szerp/app/views/items/show.blade.php

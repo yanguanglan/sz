@@ -88,3 +88,25 @@ Route::filter('csrf', function()
 		throw new Illuminate\Session\TokenMismatchException;
 	}
 });
+
+function get_order_status($name)
+{
+	$array = array(
+		'order_created' => '<span class="label label-danger">待确认价格</span>',
+		'order_price_confirmed' => '<span class="label label-danger">待备货</span>',
+		'order_stockuped' => '<span class="label label-danger">待确认订单</span>',
+		'order_confirmed' => '<span class="label label-warning">待付款</span>',
+		'order_payed' => '<span class="label label-warning">待确认收款</span>',
+		'order_pay_confirmed' => '<span class="label label-warning">待发货</span>',
+		'order_shipped' => '<span class="label label-success">已发货</span>',
+		'order_finished' => '<span class="label label-default">订单完成</span>',
+		'order_canceled' => '<span class="label label-default">取消关闭</span>',
+		'order_part_shipped' => '<span class="label label-success">部分已发货</span>',
+		'order_unfinished' => '<span class="label label-danger">未完成订单</span>',
+		'order_returned' => '<span class="label label-info">退款中</span>',
+		'order_received' => '<span class="label label-info">退款已收货</span>',
+		'order_return_payed' => '<span class="label label-default">退款完成</span>'
+	);
+
+	return $array[$name];
+}

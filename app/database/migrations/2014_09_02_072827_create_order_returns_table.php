@@ -15,8 +15,8 @@ class CreateOrderReturnsTable extends Migration {
 		Schema::create('order_returns', function(Blueprint $table)
 		{
 			$table->bigIncrements('id');
-			$table->bigInteger('order_id');
-			$table->integer('customer_id');
+			$table->bigInteger('order_id')->index();
+			$table->integer('customer_id')->index();
 			$table->string('question');
 			$table->text('description');
 			$table->integer('quantity');

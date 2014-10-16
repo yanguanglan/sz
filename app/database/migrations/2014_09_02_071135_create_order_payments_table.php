@@ -15,13 +15,11 @@ class CreateOrderPaymentsTable extends Migration {
 		Schema::create('order_payments', function(Blueprint $table)
 		{
 			$table->bigIncrements('id');
-			$table->bigInteger('order_id');
+			$table->bigInteger('order_id')->index();
+			$table->timestamp('paydate');
 			$table->string('no');
-			$table->decimal('amount', 7,2);
-			$table->string('customer');
-			$table->boolean('type', 0);
-			$table->string('pay_bank', 32);
-			$table->string('received_bank', 32);
+			$table->decimal('amount', 15,2);
+			$table->boolean('payment_method_id', 0);
 			$table->string('memo');
 			$table->timestamps();
 		});

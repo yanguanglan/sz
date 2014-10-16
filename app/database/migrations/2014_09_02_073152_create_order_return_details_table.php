@@ -15,9 +15,9 @@ class CreateOrderReturnDetailsTable extends Migration {
 		Schema::create('order_return_details', function(Blueprint $table)
 		{
 			$table->bigIncrements('id');
-			$table->bigInteger('order_return_id');
-			$table->bigInteger('stockup_id');
-			$table->bigInteger('stockup_detail_id');
+			$table->bigInteger('order_return_id')->index();
+			$table->bigInteger('stockup_id')->index();
+			$table->bigInteger('stockup_detail_id')->index();
 			$table->integer('quantity');
 			$table->timestamps();
 		});

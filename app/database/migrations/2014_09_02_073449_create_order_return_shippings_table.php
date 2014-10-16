@@ -15,7 +15,7 @@ class CreateOrderReturnShippingsTable extends Migration {
 		Schema::create('order_return_shippings', function(Blueprint $table)
 		{
 			$table->bigIncrements('id');
-			$table->bigInteger('order_return_id');
+			$table->bigInteger('order_return_id')->index();
 			$table->string('no', 32);
 			$table->string('carrier', 100);
 			$table->string('contact');

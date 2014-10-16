@@ -15,7 +15,7 @@ class CreateItemAlbumsTable extends Migration {
 		Schema::create('item_albums', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('item_id');
+			$table->integer('item_id')->index();
 			$table->string('file');
 			$table->integer('sort');
 			$table->timestamps();

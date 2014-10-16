@@ -15,13 +15,13 @@ class CreateOrderDetailsTable extends Migration {
 		Schema::create('order_details', function(Blueprint $table)
 		{
 			$table->bigIncrements('id');
-			$table->integer('order_id');
-			$table->bigInteger('item_id');
-			$table->boolean('craft', 0);
+			$table->integer('order_id')->index();
+			$table->bigInteger('item_id')->index();
 			$table->string('craft_description');
 			$table->integer('quantity');
-			$table->decimal('confirm_price', 5,2);
+			$table->decimal('confirm_price', 7,2);
 			$table->integer('confirm_quantity');
+			$table->integer('delivery_quantity');
 			$table->timestamps();
 		});
 	}

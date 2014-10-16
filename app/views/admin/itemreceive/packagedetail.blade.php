@@ -64,7 +64,12 @@
                                 <i class="glyphicon glyphicon-edit icon-white"></i>
                                 检验
                                 </a>
-                                    @else
+                                    @elseif($itemReceivedPackageDetail->status == 1)
+                                <a class="btn btn-danger" data-toggle="modal" href="{{URL::to('admin/itemreceive/packagecheckedin?id='.$itemReceivedPackageDetail->id)}}" data-target="#Checkedin-myModal">
+                                <i class="glyphicon glyphicon-share-alt"></i>
+                                入库
+                                </a>
+                                   @else
                                 <a class="btn btn-warning btnPrint" href="{{URL::to('admin/itemreceive/packagecheckedprint?id='.$itemReceivedPackageDetail->id)}}">
                                 <i class="glyphicon glyphicon-print icon-white"></i>
                                 打印

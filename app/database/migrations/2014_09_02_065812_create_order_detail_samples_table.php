@@ -15,8 +15,8 @@ class CreateOrderDetailSamplesTable extends Migration {
 		Schema::create('order_detail_samples', function(Blueprint $table)
 		{
 			$table->bigIncrements('id');
-			$table->bigInteger('order_id');
-			$table->integer('sample_id');
+			$table->bigInteger('order_id')->index();
+			$table->integer('sample_id')->index();
 			$table->integer('quantity');
 			$table->timestamps();
 		});

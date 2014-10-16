@@ -17,7 +17,7 @@ class ItemReceivedPackageDetailsTableSeeder extends Seeder {
 		}*/
 		//1
 		//package1
-		ItemReceivedPackageDetail::create([
+	/*	ItemReceivedPackageDetail::create([
 			'package_id'=>1,
 			'identity'=>'158-52A,A01',
 			'supplier_id'=>1,
@@ -75,7 +75,7 @@ class ItemReceivedPackageDetailsTableSeeder extends Seeder {
 		//P2
 		ItemReceivedPackageDetail::create([
 			'package_id'=>2,
-			'identity'=>'158-52A,A01',
+			'identity'=>'158-52A,A11',
 			'supplier_id'=>1,
 			'item'=>'158-52A',
 			'price'=>10,
@@ -85,7 +85,7 @@ class ItemReceivedPackageDetailsTableSeeder extends Seeder {
 			]);
 		ItemReceivedPackageDetail::create([
 			'package_id'=>2,
-			'identity'=>'158-52A,A02',
+			'identity'=>'158-52A,A12',
 			'supplier_id'=>1,
 			'item'=>'158-52A',
 			'price'=>10,
@@ -95,7 +95,7 @@ class ItemReceivedPackageDetailsTableSeeder extends Seeder {
 			]);
 		ItemReceivedPackageDetail::create([
 			'package_id'=>2,
-			'identity'=>'158-52B,A01',
+			'identity'=>'158-52B,A11',
 			'supplier_id'=>1,
 			'item'=>'158-52B',
 			'price'=>10,
@@ -106,7 +106,7 @@ class ItemReceivedPackageDetailsTableSeeder extends Seeder {
 
 		ItemReceivedPackageDetail::create([
 			'package_id'=>2,
-			'identity'=>'158-52B,A02',
+			'identity'=>'158-52B,A12',
 			'supplier_id'=>1,
 			'item'=>'158-52B',
 			'price'=>10,
@@ -117,7 +117,7 @@ class ItemReceivedPackageDetailsTableSeeder extends Seeder {
 
 		ItemReceivedPackageDetail::create([
 			'package_id'=>2,
-			'identity'=>'158-52B,A03',
+			'identity'=>'158-52B,A13',
 			'supplier_id'=>1,
 			'item'=>'158-52B',
 			'price'=>10,
@@ -129,7 +129,7 @@ class ItemReceivedPackageDetailsTableSeeder extends Seeder {
 		//P3
 		ItemReceivedPackageDetail::create([
 			'package_id'=>3,
-			'identity'=>'158-52A,A01',
+			'identity'=>'158-52A,A21',
 			'supplier_id'=>1,
 			'item'=>'158-52A',
 			'price'=>10,
@@ -139,7 +139,7 @@ class ItemReceivedPackageDetailsTableSeeder extends Seeder {
 			]);
 		ItemReceivedPackageDetail::create([
 			'package_id'=>3,
-			'identity'=>'158-52A,A02',
+			'identity'=>'158-52A,A22',
 			'supplier_id'=>1,
 			'item'=>'158-52A',
 			'price'=>10,
@@ -149,7 +149,7 @@ class ItemReceivedPackageDetailsTableSeeder extends Seeder {
 			]);
 		ItemReceivedPackageDetail::create([
 			'package_id'=>3,
-			'identity'=>'158-52B,A01',
+			'identity'=>'158-52B,A21',
 			'supplier_id'=>1,
 			'item'=>'158-52B',
 			'price'=>10,
@@ -160,7 +160,7 @@ class ItemReceivedPackageDetailsTableSeeder extends Seeder {
 
 		ItemReceivedPackageDetail::create([
 			'package_id'=>3,
-			'identity'=>'158-52B,A02',
+			'identity'=>'158-52B,A22',
 			'supplier_id'=>1,
 			'item'=>'158-52B',
 			'price'=>10,
@@ -171,7 +171,7 @@ class ItemReceivedPackageDetailsTableSeeder extends Seeder {
 
 		ItemReceivedPackageDetail::create([
 			'package_id'=>3,
-			'identity'=>'158-52B,A03',
+			'identity'=>'158-52B,A23',
 			'supplier_id'=>1,
 			'item'=>'158-52B',
 			'price'=>10,
@@ -183,7 +183,7 @@ class ItemReceivedPackageDetailsTableSeeder extends Seeder {
 		//P4
 		ItemReceivedPackageDetail::create([
 			'package_id'=>4,
-			'identity'=>'158-52A,A01',
+			'identity'=>'158-52A,A31',
 			'supplier_id'=>1,
 			'item'=>'158-52A',
 			'price'=>10,
@@ -193,7 +193,7 @@ class ItemReceivedPackageDetailsTableSeeder extends Seeder {
 			]);
 		ItemReceivedPackageDetail::create([
 			'package_id'=>4,
-			'identity'=>'158-52A,A02',
+			'identity'=>'158-52A,A32',
 			'supplier_id'=>1,
 			'item'=>'158-52A',
 			'price'=>10,
@@ -203,7 +203,7 @@ class ItemReceivedPackageDetailsTableSeeder extends Seeder {
 			]);
 		ItemReceivedPackageDetail::create([
 			'package_id'=>4,
-			'identity'=>'158-52B,A01',
+			'identity'=>'158-52B,A31',
 			'supplier_id'=>1,
 			'item'=>'158-52B',
 			'price'=>10,
@@ -214,7 +214,7 @@ class ItemReceivedPackageDetailsTableSeeder extends Seeder {
 
 		ItemReceivedPackageDetail::create([
 			'package_id'=>4,
-			'identity'=>'158-52B,A02',
+			'identity'=>'158-52B,A32',
 			'supplier_id'=>1,
 			'item'=>'158-52B',
 			'price'=>10,
@@ -225,7 +225,7 @@ class ItemReceivedPackageDetailsTableSeeder extends Seeder {
 
 		ItemReceivedPackageDetail::create([
 			'package_id'=>4,
-			'identity'=>'158-52B,A03',
+			'identity'=>'158-52B,A33',
 			'supplier_id'=>1,
 			'item'=>'158-52B',
 			'price'=>10,
@@ -237,7 +237,7 @@ class ItemReceivedPackageDetailsTableSeeder extends Seeder {
 		//P5
 		ItemReceivedPackageDetail::create([
 			'package_id'=>5,
-			'identity'=>'158-52A,A01',
+			'identity'=>'158-52A,A41',
 			'supplier_id'=>1,
 			'item'=>'158-52A',
 			'price'=>10,
@@ -247,7 +247,7 @@ class ItemReceivedPackageDetailsTableSeeder extends Seeder {
 			]);
 		ItemReceivedPackageDetail::create([
 			'package_id'=>5,
-			'identity'=>'158-52A,A02',
+			'identity'=>'158-52A,A42',
 			'supplier_id'=>1,
 			'item'=>'158-52A',
 			'price'=>10,
@@ -257,7 +257,7 @@ class ItemReceivedPackageDetailsTableSeeder extends Seeder {
 			]);
 		ItemReceivedPackageDetail::create([
 			'package_id'=>5,
-			'identity'=>'158-52B,A01',
+			'identity'=>'158-52B,A41',
 			'supplier_id'=>1,
 			'item'=>'158-52B',
 			'price'=>10,
@@ -268,7 +268,7 @@ class ItemReceivedPackageDetailsTableSeeder extends Seeder {
 
 		ItemReceivedPackageDetail::create([
 			'package_id'=>5,
-			'identity'=>'158-52B,A02',
+			'identity'=>'158-52B,A42',
 			'supplier_id'=>1,
 			'item'=>'158-52B',
 			'price'=>10,
@@ -279,7 +279,7 @@ class ItemReceivedPackageDetailsTableSeeder extends Seeder {
 
 		ItemReceivedPackageDetail::create([
 			'package_id'=>5,
-			'identity'=>'158-52B,A03',
+			'identity'=>'158-52B,A43',
 			'supplier_id'=>1,
 			'item'=>'158-52B',
 			'price'=>10,
@@ -346,7 +346,7 @@ class ItemReceivedPackageDetailsTableSeeder extends Seeder {
 		//P2
 		ItemReceivedPackageDetail::create([
 			'package_id'=>7,
-			'identity'=>'158-52A,A01',
+			'identity'=>'158-52A,A11',
 			'supplier_id'=>2,
 			'item'=>'158-52A',
 			'price'=>10,
@@ -356,7 +356,7 @@ class ItemReceivedPackageDetailsTableSeeder extends Seeder {
 			]);
 		ItemReceivedPackageDetail::create([
 			'package_id'=>7,
-			'identity'=>'158-52A,A02',
+			'identity'=>'158-52A,A12',
 			'supplier_id'=>2,
 			'item'=>'158-52A',
 			'price'=>10,
@@ -366,7 +366,7 @@ class ItemReceivedPackageDetailsTableSeeder extends Seeder {
 			]);
 		ItemReceivedPackageDetail::create([
 			'package_id'=>7,
-			'identity'=>'158-52B,A01',
+			'identity'=>'158-52B,A11',
 			'supplier_id'=>2,
 			'item'=>'158-52B',
 			'price'=>10,
@@ -377,7 +377,7 @@ class ItemReceivedPackageDetailsTableSeeder extends Seeder {
 
 		ItemReceivedPackageDetail::create([
 			'package_id'=>7,
-			'identity'=>'158-52B,A02',
+			'identity'=>'158-52B,A12',
 			'supplier_id'=>2,
 			'item'=>'158-52B',
 			'price'=>10,
@@ -388,7 +388,7 @@ class ItemReceivedPackageDetailsTableSeeder extends Seeder {
 
 		ItemReceivedPackageDetail::create([
 			'package_id'=>7,
-			'identity'=>'158-52B,A03',
+			'identity'=>'158-52B,A13',
 			'supplier_id'=>2,
 			'item'=>'158-52B',
 			'price'=>10,
@@ -400,7 +400,7 @@ class ItemReceivedPackageDetailsTableSeeder extends Seeder {
 		//P3
 		ItemReceivedPackageDetail::create([
 			'package_id'=>8,
-			'identity'=>'158-52A,A01',
+			'identity'=>'158-52A,A21',
 			'supplier_id'=>2,
 			'item'=>'158-52A',
 			'price'=>10,
@@ -410,7 +410,7 @@ class ItemReceivedPackageDetailsTableSeeder extends Seeder {
 			]);
 		ItemReceivedPackageDetail::create([
 			'package_id'=>8,
-			'identity'=>'158-52A,A02',
+			'identity'=>'158-52A,A22',
 			'supplier_id'=>2,
 			'item'=>'158-52A',
 			'price'=>10,
@@ -420,7 +420,7 @@ class ItemReceivedPackageDetailsTableSeeder extends Seeder {
 			]);
 		ItemReceivedPackageDetail::create([
 			'package_id'=>8,
-			'identity'=>'158-52B,A01',
+			'identity'=>'158-52B,A21',
 			'supplier_id'=>2,
 			'item'=>'158-52B',
 			'price'=>10,
@@ -431,7 +431,7 @@ class ItemReceivedPackageDetailsTableSeeder extends Seeder {
 
 		ItemReceivedPackageDetail::create([
 			'package_id'=>8,
-			'identity'=>'158-52B,A02',
+			'identity'=>'158-52B,A22',
 			'supplier_id'=>2,
 			'item'=>'158-52B',
 			'price'=>10,
@@ -442,7 +442,7 @@ class ItemReceivedPackageDetailsTableSeeder extends Seeder {
 
 		ItemReceivedPackageDetail::create([
 			'package_id'=>8,
-			'identity'=>'158-52B,A03',
+			'identity'=>'158-52B,A23',
 			'supplier_id'=>2,
 			'item'=>'158-52B',
 			'price'=>10,
@@ -454,7 +454,7 @@ class ItemReceivedPackageDetailsTableSeeder extends Seeder {
 		//P4
 		ItemReceivedPackageDetail::create([
 			'package_id'=>9,
-			'identity'=>'158-52A,A01',
+			'identity'=>'158-52A,A31',
 			'supplier_id'=>2,
 			'item'=>'158-52A',
 			'price'=>10,
@@ -464,7 +464,7 @@ class ItemReceivedPackageDetailsTableSeeder extends Seeder {
 			]);
 		ItemReceivedPackageDetail::create([
 			'package_id'=>9,
-			'identity'=>'158-52A,A02',
+			'identity'=>'158-52A,A32',
 			'supplier_id'=>2,
 			'item'=>'158-52A',
 			'price'=>10,
@@ -474,7 +474,7 @@ class ItemReceivedPackageDetailsTableSeeder extends Seeder {
 			]);
 		ItemReceivedPackageDetail::create([
 			'package_id'=>9,
-			'identity'=>'158-52B,A01',
+			'identity'=>'158-52B,A31',
 			'supplier_id'=>2,
 			'item'=>'158-52B',
 			'price'=>10,
@@ -485,7 +485,7 @@ class ItemReceivedPackageDetailsTableSeeder extends Seeder {
 
 		ItemReceivedPackageDetail::create([
 			'package_id'=>9,
-			'identity'=>'158-52B,A02',
+			'identity'=>'158-52B,A32',
 			'supplier_id'=>2,
 			'item'=>'158-52B',
 			'price'=>10,
@@ -496,7 +496,7 @@ class ItemReceivedPackageDetailsTableSeeder extends Seeder {
 
 		ItemReceivedPackageDetail::create([
 			'package_id'=>9,
-			'identity'=>'158-52B,A03',
+			'identity'=>'158-52B,A33',
 			'supplier_id'=>2,
 			'item'=>'158-52B',
 			'price'=>10,
@@ -508,7 +508,7 @@ class ItemReceivedPackageDetailsTableSeeder extends Seeder {
 		//P5
 		ItemReceivedPackageDetail::create([
 			'package_id'=>10,
-			'identity'=>'158-52A,A01',
+			'identity'=>'158-52A,A41',
 			'supplier_id'=>2,
 			'item'=>'158-52A',
 			'price'=>10,
@@ -518,7 +518,7 @@ class ItemReceivedPackageDetailsTableSeeder extends Seeder {
 			]);
 		ItemReceivedPackageDetail::create([
 			'package_id'=>10,
-			'identity'=>'158-52A,A02',
+			'identity'=>'158-52A,A42',
 			'supplier_id'=>2,
 			'item'=>'158-52A',
 			'price'=>10,
@@ -528,7 +528,7 @@ class ItemReceivedPackageDetailsTableSeeder extends Seeder {
 			]);
 		ItemReceivedPackageDetail::create([
 			'package_id'=>10,
-			'identity'=>'158-52B,A01',
+			'identity'=>'158-52B,A41',
 			'supplier_id'=>2,
 			'item'=>'158-52B',
 			'price'=>10,
@@ -539,7 +539,7 @@ class ItemReceivedPackageDetailsTableSeeder extends Seeder {
 
 		ItemReceivedPackageDetail::create([
 			'package_id'=>10,
-			'identity'=>'158-52B,A02',
+			'identity'=>'158-52B,A42',
 			'supplier_id'=>2,
 			'item'=>'158-52B',
 			'price'=>10,
@@ -550,7 +550,7 @@ class ItemReceivedPackageDetailsTableSeeder extends Seeder {
 
 		ItemReceivedPackageDetail::create([
 			'package_id'=>10,
-			'identity'=>'158-52B,A03',
+			'identity'=>'158-52B,A43',
 			'supplier_id'=>2,
 			'item'=>'158-52B',
 			'price'=>10,
@@ -616,7 +616,7 @@ class ItemReceivedPackageDetailsTableSeeder extends Seeder {
 		//P2
 		ItemReceivedPackageDetail::create([
 			'package_id'=>12,
-			'identity'=>'158-52A,A01',
+			'identity'=>'158-52A,A11',
 			'supplier_id'=>3,
 			'item'=>'158-52A',
 			'price'=>10,
@@ -626,7 +626,7 @@ class ItemReceivedPackageDetailsTableSeeder extends Seeder {
 			]);
 		ItemReceivedPackageDetail::create([
 			'package_id'=>12,
-			'identity'=>'158-52A,A02',
+			'identity'=>'158-52A,A12',
 			'supplier_id'=>3,
 			'item'=>'158-52A',
 			'price'=>10,
@@ -636,7 +636,7 @@ class ItemReceivedPackageDetailsTableSeeder extends Seeder {
 			]);
 		ItemReceivedPackageDetail::create([
 			'package_id'=>12,
-			'identity'=>'158-52B,A01',
+			'identity'=>'158-52B,A11',
 			'supplier_id'=>3,
 			'item'=>'158-52B',
 			'price'=>10,
@@ -647,7 +647,7 @@ class ItemReceivedPackageDetailsTableSeeder extends Seeder {
 
 		ItemReceivedPackageDetail::create([
 			'package_id'=>12,
-			'identity'=>'158-52B,A02',
+			'identity'=>'158-52B,A12',
 			'supplier_id'=>3,
 			'item'=>'158-52B',
 			'price'=>10,
@@ -827,7 +827,7 @@ class ItemReceivedPackageDetailsTableSeeder extends Seeder {
 			'quantity'=>1800,
 			'position'=>'', 'readyposition'=>'', 'batch'=>'',
 			'status'=>0
-			]);
+			]);*/
 	}
 
 }

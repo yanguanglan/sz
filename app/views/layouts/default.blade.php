@@ -26,6 +26,8 @@
     {{ HTML::style('/css/animate.min.css') }}
     <!-- anySearch -->
     {{ HTML::style('/bower_components/anysearch/css/anysearch.css') }}
+    <!-- anySearch -->
+    {{ HTML::style('/css/typeaheadjs.css') }}
     <!-- jQuery -->
     {{ HTML::script('/bower_components/jquery/jquery.min.js') }}
     <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -47,6 +49,8 @@
 {{ HTML::script('/bower_components/fullcalendar/dist/fullcalendar.min.js') }}
 <!-- data table plugin -->
 {{ HTML::script('/js/jquery.dataTables.min.js') }}
+<!-- data table columnFilter plugin -->
+{{ HTML::script('/js/jquery.dataTables.columnFilter.js') }}
 <!-- select or dropdown enhancer -->
 {{ HTML::script('/bower_components/chosen/chosen.jquery.js') }}
 <!-- plugin for gallery image view -->
@@ -71,6 +75,8 @@
 {{ HTML::script('/js/jquery.printPage.js') }}
 <!-- anySearch -->
 {{ HTML::script('/bower_components/anysearch/js/anysearch.min.js') }}
+<!-- typeahead -->
+{{ HTML::script('/js/typeahead.js') }}
 <!-- application script for Charisma demo -->
 {{ HTML::script('/js/charisma.js') }}
 </body>

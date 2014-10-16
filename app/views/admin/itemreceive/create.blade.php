@@ -140,13 +140,13 @@
                                @if(isset($batchValue[$k+1])) <?php $j+=$batchValue[$k+1]->quantity ?> {{$batchValue[$k+1]->quantity}} @endif 
                             </td>
                             <td class="text-center">
-                               @if(isset($batchValue[$k+2])) <?php $j+=$batchValue[$k+1]->quantity ?> {{$batchValue[$k+2]->quantity}} @endif 
+                               @if(isset($batchValue[$k+2])) <?php $j+=$batchValue[$k+2]->quantity ?> {{$batchValue[$k+2]->quantity}} @endif 
                             </td>
                             <td class="text-center">
-                               @if(isset($batchValue[$k+3])) <?php $j+=$batchValue[$k+1]->quantity ?> {{$batchValue[$k+3]->quantity}} @endif 
+                               @if(isset($batchValue[$k+3])) <?php $j+=$batchValue[$k+3]->quantity ?> {{$batchValue[$k+3]->quantity}} @endif 
                             </td>
                             <td class="text-center">
-                               @if(isset($batchValue[$k+4])) <?php $j+=$batchValue[$k+1]->quantity ?> {{$batchValue[$k+4]->quantity}} @endif 
+                               @if(isset($batchValue[$k+4])) <?php $j+=$batchValue[$k+4]->quantity ?> {{$batchValue[$k+4]->quantity}} @endif 
                             </td>
                             <td class="text-center">
                                @if($l>5) <?php $itemCount += 5;?> 5 @else <?php $itemCount += $l;?> {{$l}} @endif

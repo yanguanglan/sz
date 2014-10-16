@@ -15,8 +15,8 @@ class CreateItemReceivedPackageDetailsTable extends Migration {
 		Schema::create('item_received_package_details', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('package_id');
-			$table->string('identity', 32);
+			$table->integer('package_id')->index();
+			$table->string('identity', 32)->index();
 			$table->integer('supplier_id');
 			$table->string('item', 32);
 			$table->decimal('price', 5,2);

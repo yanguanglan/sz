@@ -15,14 +15,10 @@ class CreateOrderShippingsTable extends Migration {
 		Schema::create('order_shippings', function(Blueprint $table)
 		{
 			$table->bigIncrements('id');
-			$table->bigInteger('order_id');
+			$table->bigInteger('order_id')->index();
+			$table->timestamp('shipping_date');
 			$table->string('no', 32);
-			$table->string('destination');
-			$table->string('payment');
-			$table->integer('quantity');
 			$table->string('carrier', 100);
-			$table->string('delivery');
-			$table->string('reveived');
 			$table->timestamps();
 		});
 	}
